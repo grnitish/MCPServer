@@ -1,0 +1,41 @@
+# FastAPI Backend
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+python-dotenv==1.0.0
+pydantic==2.5.0
+pydantic-settings==2.1.0
+
+# Database
+sqlalchemy==2.0.23
+alembic==1.13.0
+
+# RAG Components
+chromadb==0.4.18
+sentence-transformers==2.2.2
+langchain==0.1.0
+langchain-community==0.0.10
+
+# News Fetching
+requests==2.31.0
+feedparser==6.0.10
+beautifulsoup4==4.12.2
+
+# Azure OpenAI
+openai==1.12.0
+
+# Text Processing
+python-dateutil==2.8.2
+textstat==0.7.3
+
+# Background Tasks
+apscheduler==3.10.4
+
+# Utilities
+python-multipart==0.0.6
+aiofiles==23.2.1
+
+langgraph==0.2.45
+langchain==0.3.13
+langchain-community==0.3.13
+langchain-openai==0.2.14
+langchain-mcp-adapters
