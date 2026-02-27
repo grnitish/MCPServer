@@ -1,0 +1,145 @@
+============================================
+  GIT COMMANDS GUIDE - Learn by Doing
+============================================
+
+Your GitHub Repo: https://github.com/grnitish/MCPServer.git
+Your Local Folder: C:\Users\grnit\OneDrive\Documents\RAG
+
+Open a terminal (Command Prompt or PowerShell) in your project folder and follow along.
+
+--------------------------------------------
+STEP 1: CONFIGURE GIT (One-time setup)
+--------------------------------------------
+git config --global user.name "Your Name"
+git config --global user.email "your-email@example.com"
+
+  What this does: Tells git who you are. This info appears in your commits.
+
+--------------------------------------------
+STEP 2: INITIALIZE A GIT REPOSITORY
+--------------------------------------------
+git init
+
+  What this does: Creates a hidden .git folder in your project.
+  This turns your folder into a git repository.
+
+--------------------------------------------
+STEP 3: CHECK STATUS
+--------------------------------------------
+git status
+
+  What this does: Shows which files are new (untracked), modified, or staged.
+  Use this command often! It tells you the current state of your repo.
+
+--------------------------------------------
+STEP 4: CREATE A .gitignore FILE
+--------------------------------------------
+Create a file called ".gitignore" (no extension) in your project folder with this content:
+
+__pycache__/
+chroma_db_langgraph/
+*.pyc
+.env
+news_data/
+
+  What this does: Tells git to IGNORE these files/folders.
+  You don't want to push cache files, databases, or secrets to GitHub.
+
+--------------------------------------------
+STEP 5: STAGE FILES (Add to staging area)
+--------------------------------------------
+git add .
+
+  What this does: Stages ALL files (except ignored ones) for the next commit.
+  Think of it as "selecting" files you want to save.
+
+  Other useful variations:
+    git add filename.py       -- Stage a single file
+    git add *.py              -- Stage all .py files
+    git add -A                -- Stage everything including deletions
+
+--------------------------------------------
+STEP 6: COMMIT (Save a snapshot)
+--------------------------------------------
+git commit -m "Initial commit: Add RAG project files"
+
+  What this does: Saves a snapshot of your staged files with a message.
+  The -m flag lets you write a short description of what changed.
+
+--------------------------------------------
+STEP 7: CONNECT TO GITHUB (Add remote)
+--------------------------------------------
+git remote add origin https://github.com/grnitish/MCPServer.git
+
+  What this does: Links your local repo to your GitHub repo.
+  "origin" is the nickname for your remote repo (convention).
+
+  To verify:
+    git remote -v
+
+--------------------------------------------
+STEP 8: RENAME BRANCH TO MAIN
+--------------------------------------------
+git branch -M main
+
+  What this does: Renames your default branch to "main".
+  GitHub expects the default branch to be called "main".
+
+--------------------------------------------
+STEP 9: PUSH TO GITHUB
+--------------------------------------------
+git push -u origin main
+
+  What this does: Uploads your commits to GitHub.
+  -u sets "origin main" as the default, so next time you can just type: git push
+
+============================================
+  EVERYDAY GIT COMMANDS (After setup)
+============================================
+
+--- See what changed ---
+git status                  -- See modified/new files
+git diff                    -- See exact line changes (before staging)
+git diff --staged           -- See changes that are staged
+
+--- Save changes ---
+git add .                   -- Stage all changes
+git commit -m "Your message here"   -- Commit with a message
+git push                    -- Push to GitHub
+
+--- View history ---
+git log                     -- See all commits
+git log --oneline           -- See commits in one line each
+
+--- Pull changes (if you edit on GitHub or another computer) ---
+git pull                    -- Download and merge remote changes
+
+--- Branching (for working on features separately) ---
+git branch feature-name     -- Create a new branch
+git checkout feature-name   -- Switch to that branch
+git checkout -b feature-name -- Create AND switch in one command
+git merge feature-name      -- Merge branch into current branch
+
+--- Undo mistakes ---
+git checkout -- filename    -- Discard changes to a file (before staging)
+git reset HEAD filename     -- Unstage a file (undo git add)
+git reset --soft HEAD~1     -- Undo last commit but keep changes
+
+============================================
+  SUMMARY: THE BASIC WORKFLOW
+============================================
+
+  1. Make changes to your files
+  2. git add .              (stage changes)
+  3. git commit -m "message" (save snapshot)
+  4. git push               (upload to GitHub)
+
+  That's it! Repeat steps 1-4 every time you want to save your work.
+
+============================================
+  TIPS
+============================================
+- Commit often with clear messages
+- Always pull before you push if working with others
+- Use .gitignore to keep secrets and junk out of GitHub
+- Use "git status" whenever you're unsure what's going on

@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-st.title("🚀 News Search using Serper API")
+st.title("🚀 Stock market Live Trade")
 
 # --- 1. Initialize the Agent Class in Session State ---
 @st.cache_resource
@@ -13,7 +13,7 @@ def get_agent():
     return NewsAgentClient()
 
 agent_instance = get_agent()
-print(type(agent_instance))
+
 
 # --- 2. Chat UI Logic ---
 if "messages" not in st.session_state:
@@ -27,7 +27,7 @@ if prompt := st.chat_input():
     st.chat_message("user").write(prompt)
 
     with st.chat_message("assistant"):
-        with st.spinner("Searching the news..."):
+        with st.spinner("trying to understand.."):
             # Bridge between Sync Streamlit and Async Agent
             try:
                 # We use asyncio.run to call the async method of our class

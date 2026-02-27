@@ -1,0 +1,13 @@
+# MCP Framework
+mcp
+
+# News Fetching
+requests==2.31.0
+trafilatura
+
+# Database
+pandas
+pyodbc
+
+# Utilities
+python-dotenv==1.0.0

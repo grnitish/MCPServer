@@ -1,0 +1,10 @@
+.venv/
+__pycache__/
+*.pyc
+.env
+.git/
+nul
+test.py
+git_commands_guide.txt
+infra/
+*.md

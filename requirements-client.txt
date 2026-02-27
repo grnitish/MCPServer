@@ -1,0 +1,11 @@
+# Streamlit UI
+streamlit
+
+# LangChain / Agent
+langgraph==0.2.45
+langchain==0.3.13
+langchain-openai==0.2.14
+langchain-mcp-adapters
+
+# Utilities
+python-dotenv==1.0.0

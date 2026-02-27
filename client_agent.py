@@ -1,11 +1,20 @@
 from langchain_mcp_adapters.client import MultiServerMCPClient
 from langgraph.prebuilt import create_react_agent
 from langchain_openai import AzureChatOpenAI
+from langchain_core.tools import tool
 from dotenv import load_dotenv
 load_dotenv()
 import os
+from urllib.parse import urlparse
+import asyncio
 
 import asyncio
+import sys
+
+if sys.platform == 'win32':
+    asyncio.set_event_lozop_policy(asyncio.WindowsSelectorEventLoopPolicy())
+
+
 
 class NewsAgentClient:
     load_dotenv()
@@ -15,7 +24,7 @@ class NewsAgentClient:
             "news-rag-server":{
                 "url":"http://localhost:8000/mcp",
                 "transport": "streamable_http"
-            
+
             }
         }
     )
@@ -31,9 +40,9 @@ class NewsAgentClient:
     async def initialize(self):
         """Fetches tools and sets up the ReAct agent."""
         if not self.agent:
-            tools = await self.client.get_tools()
-        
-            self.agent = create_react_agent(self.model,tools)
+            mcp_tools = await self.client.get_tools()
+            all_tools = mcp_tools
+            self.agent = create_react_agent(self.model, all_tools)
 
     async def get_news(self,query:str):
         """Invokes the agent and returns the string content"""
